@@ -1,0 +1,365 @@
+/* Main container */
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 2000px;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Creator Card Styles */
+.creator-card {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  position: relative;
+}
+
+.creator-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.creator-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.creator-card:hover::before {
+  opacity: 1;
+}
+
+.creator-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.creator-card:hover .creator-image {
+  transform: scale(1.05);
+}
+
+.creator-name-link {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.creator-name-link:hover {
+  color: #667eea;
+}
+
+.creator-card header {
+  margin-bottom: 0.5rem;
+  padding: 1rem 1rem 0.5rem;
+}
+
+.creator-card header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #1a1a1a;
+  transition: color 0.3s ease;
+}
+
+.creator-card:hover header h3 {
+  color: #667eea;
+}
+
+.creator-card p {
+  padding: 0 1rem;
+  color: #666;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.creator-card footer {
+  margin-top: auto;
+  padding: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Page Header Styles */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+/* Grid Layout */
+.creators-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Card Actions */
+.card-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0;
+}
+
+.card-actions button,
+.card-actions a {
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.card-actions button:hover,
+.card-actions a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Navigation Links */
+nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: rgba(102, 126, 234, 0.2);
+  transform: translateX(-4px);
+}
+
+/* Form Styles */
+.creator-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.creator-form label {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.creator-form input,
+.creator-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid rgba(102, 126, 234, 0.2);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.creator-form input:focus,
+.creator-form textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+.creator-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Button Enhancements */
+button.primary,
+a[role="button"].primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+button.primary:hover,
+a[role="button"].primary:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+button.secondary,
+a[role="button"].secondary {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  border: 2px solid rgba(102, 126, 234, 0.2);
+  transition: all 0.3s ease;
+}
+
+button.secondary:hover,
+a[role="button"].secondary:hover {
+  background: rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+  color: #667eea;
+}
+
+button.contrast {
+  background: #f44336;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+button.contrast:hover {
+  background: #d32f2f;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 16px;
+  border: 2px dashed rgba(102, 126, 234, 0.2);
+}
+
+.empty-state p {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.25rem;
+  color: #667eea;
+}
+
+.loading::after {
+  content: "...";
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%,
+  20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60%,
+  100% {
+    content: "...";
+  }
+}
+
+/* View Creator Page */
+.creator-detail {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.creator-detail img {
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.creator-detail h1 {
+  margin-bottom: 1rem;
+}
+
+.creator-detail .description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .creators-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+}
+
+/* Smooth animations for page transitions */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+article {
+  animation: slideIn 0.4s ease-out;
+}
